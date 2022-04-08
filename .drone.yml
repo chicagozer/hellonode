@@ -12,7 +12,7 @@ steps:
   - echo $IMAGE_TAG
   - export
 - name: push
-  image: plugins/kaniko:1.4.1
+  image: plugins/kaniko:1.5.0
   settings:
     username:
       from_secret: docker_username
@@ -20,7 +20,4 @@ steps:
       from_secret: docker_password
     repo: chicagozer/hellonode
     dockerfile: Dockerfile
-    tags:
-      - $DRONE_TAG
-      - latest
-
+    tags: ${IMAGE_TAG},latest
