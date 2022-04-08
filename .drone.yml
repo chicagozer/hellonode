@@ -20,4 +20,6 @@ steps:
       from_secret: docker_password
     repo: chicagozer/hellonode
     dockerfile: Dockerfile
-    tags: ${IMAGE_TAG},latest
+    tags: 
+    - ${IMAGE_TAG}
+    - latest
