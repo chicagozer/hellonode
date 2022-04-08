@@ -8,7 +8,7 @@ steps:
   image: node:17
   commands:
   - npm install
-  - export
+  - export IMAGE_TAG=dr_$DRONE_BRANCH.$DRONE_BUILD_NUMBER
 - name: push
   image: plugins/kaniko:1.4.1
   settings:
@@ -19,6 +19,6 @@ steps:
     repo: chicagozer/hellonode
     dockerfile: Dockerfile
     tags:
-      - dr_$DRONE_BRANCH.$DRONE_BUILD_NUMBER
+      - ${IMAGE_TAG}
       - latest
 
