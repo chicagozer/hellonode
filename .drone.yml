@@ -19,6 +19,6 @@ steps:
     repo: chicagozer/hellonode
     dockerfile: Dockerfile
     tags:
-      - drone
+      - dr_$DRONE_BRANCH.$DRONE_BUILD_NUMBER
       - latest
 
