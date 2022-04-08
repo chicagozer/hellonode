@@ -13,7 +13,7 @@ const html = `<html>
  <head>
  </head>
  <body>
-   <h1>Hello Dharini<h1>
+   <h1>Hello Dinesh<h1>
    <h1>Namespace ${namespace}<h1>
    <h1>Tag ${imagetag}<h1>
    <h1>uptime ${process.uptime()}<h1>
