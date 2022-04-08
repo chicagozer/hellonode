@@ -26,6 +26,12 @@ spec:
       containers:
         - name: {{ .Chart.Name }}
           env:
+            - name: IMAGE_TAG
+              value: {{ .Values.image.tag }}
+            - name: POD_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
             - name: "TWITTER_CONSUMER_KEY"
               value: {{ .Values.twitterConsumerKey }}
             - name: "TWITTER_CONSUMER_SECRET"
@@ -40,7 +46,7 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http
-              containerPort: 8008
+              containerPort: 3000
               protocol: TCP
           livenessProbe:
             httpGet:

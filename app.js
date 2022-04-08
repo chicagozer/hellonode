@@ -2,6 +2,8 @@ const http = require('http');
 
 const hostname = '127.0.0.1';
 const port = 3000;
+const namespace = process.env.POD_NAMESPACE;
+const imagetag = process.env.IMAGE_TAG;
 
 const server = http.createServer((req, res) => {
   res.statusCode = 200;
@@ -10,5 +12,5 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(port, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
+  console.log(`Namespace:${namespace} Tag:${imagetag} Server running at http://${hostname}:${port}/`);
 });
