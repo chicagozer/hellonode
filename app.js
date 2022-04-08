@@ -8,7 +8,7 @@ const imagetag = process.env.IMAGE_TAG;
 const server = http.createServer((req, res) => {
   res.statusCode = 200;
   res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello World');
+  res.end(`Namespace:${namespace} Tag:${imagetag} Server running at http://${hostname}:${port}/`);
 });
 
 server.listen(port, () => {
