@@ -7,8 +7,20 @@ const imagetag = process.env.IMAGE_TAG;
 
 const server = http.createServer((req, res) => {
   res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end(`Namespace:${namespace} Tag:${imagetag} Server running at http://${hostname}:${port}/`);
+  res.setHeader('Content-Type', 'text/html');
+
+const html = `<html>
+ <head>
+ </head>
+ <body>
+   <h1>Hello World<h1>
+   <h1>Namespace ${namespace}<h1>
+   <h1>Tag ${imagetag}<h1>
+   <h1>uptime ${process.uptime()}<h1>
+ </body>
+</html>`;  
+
+  res.end(html);
 });
 
 server.listen(port, () => {
