@@ -43,6 +43,7 @@ phases:
       - docker push public.ecr.aws/d5y7k0n6/$IMAGE_REPO_NAME:$IMAGE_TAG
       - docker push public.ecr.aws/d5y7k0n6/$IMAGE_REPO_NAME:$HASH
       - docker push public.ecr.aws/d5y7k0n6/$IMAGE_REPO_NAME:latest
+      - cd /rtdbtg ; git pull ; cd -
       - jq  ".app_version.${IMAGE_REPO_NAME} = \"${IMAGE_TAG}\"" /rtdbtg/terragrunt/appversion.tfvars.json > appvars.auto.tfvars.json.tmp
       - mv -f appvars.auto.tfvars.json.tmp /rtdbtg/terragrunt/appversion.tfvars.json
       - cat /rtdbtg/terragrunt/appversion.tfvars.json
