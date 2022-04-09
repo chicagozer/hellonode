@@ -33,8 +33,8 @@ jobs:
             chicagozer/hellonode
           # generate Docker tags based on the following events/attributes
           tags: |
-            type=schedule
             type=ref,event=branch
+            type=ref,event=tag
             type=ref,event=pr
             type=sha
       -
@@ -57,7 +57,7 @@ jobs:
         with:
           file: rtdbtg/terragrunt/appversion.tfvars.json
           field: app_version.hellonode
-          value: ${{ steps.meta.outputs.tags[0] }}
+          value: ${{ steps.meta.outputs.tags }}
       - 
         name: check in
         uses: EndBug/add-and-commit@v9
