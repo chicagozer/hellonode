@@ -53,7 +53,7 @@ jobs:
         with:
           repository: chicagozer/rtdbtg
           path: './rtdbtg/'
-          ref: main
+          ref: master
           token: ${{ secrets.GH_TOKEN }}
       -
         name: bump version
