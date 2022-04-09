@@ -5,7 +5,7 @@ provider "helm" {
 }
 
 resource "helm_release" "hellonode" {
-  count = var.count
+  count = var.enabled
   namespace = var.namespace
   name       = "hellonode"
   repository = "https://chicagozer.github.io/helm-chart/"

@@ -6,7 +6,7 @@ variable "namespace" {
    default = "nonprod"
 }
 
-variable "count" {
+variable "enabled" {
    default = 1
 }
 
