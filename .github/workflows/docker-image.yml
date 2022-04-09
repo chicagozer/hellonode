@@ -50,3 +50,4 @@ jobs:
           message: 'check in from GHA'
           add: 'terragrunt/appversion.tfvars.json'
           cwd: './rtdbtg/'
+          github_token: ${{ secrets.GH_TOKEN }}
