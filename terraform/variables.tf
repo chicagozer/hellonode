@@ -6,6 +6,10 @@ variable "namespace" {
    default = "nonprod"
 }
 
+variable "count" {
+   default = 1
+}
+
 variable "tag" {
    default = "latest"
 }
