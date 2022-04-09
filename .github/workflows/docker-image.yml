@@ -35,6 +35,7 @@ jobs:
           repository: chicagozer/rtdbtg
           path: './rtdbtg/'
           ref: main
+          token: ${{ secrets.GH_TOKEN }}
       -
         name: bump version
         uses: jossef/action-set-json-field@v1
@@ -42,7 +43,6 @@ jobs:
           file: rtdbtg/terragrunt/appversion.tfvars.json
           field: app_version.hellonode
           value: latest
-          
       - 
         name: check in
         uses: EndBug/add-and-commit@v9
@@ -50,4 +50,3 @@ jobs:
           message: 'check in from GHA'
           add: 'terragrunt/appversion.tfvars.json'
           cwd: './rtdbtg/'
-          github_token: ${{ secrets.GH_TOKEN }}
