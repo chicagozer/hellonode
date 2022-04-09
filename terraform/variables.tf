@@ -11,7 +11,8 @@ variable "tag" {
 }
 
 variable "repository" {
-   default = "public.ecr.aws/d5y7k0n6/hellonode"
+#   default = "public.ecr.aws/d5y7k0n6/hellonode"
+   default = "chicagozer/hellonode"
 }
 
 variable "app_version" {
