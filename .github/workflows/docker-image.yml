@@ -28,3 +28,25 @@ jobs:
         with:
           push: true
           tags: chicagozer/hellonode:latest
+      -
+        name: checkout TG
+        uses: actions/checkout@v3
+        with:
+          repository: chicagozer/rtdbtg
+          path: './rtdbtg/'
+          ref: main
+      -
+        name: bump version
+        uses: jossef/action-set-json-field@v1
+        with:
+          file: rtdbtg/terragrunt/appversion.tfvars.json
+          field: app_version.hellonode
+          value: latest
+          
+      - 
+        name: check in
+        uses: EndBug/add-and-commit@v9
+        with:
+          message: 'check in from GHA'
+          add: 'terragrunt/appversion.tfvars.json'
+          cwd: './rtdbtg/'
