@@ -12,6 +12,10 @@ jobs:
     steps:
       - run:  env
       -
+        name: set outputs
+        id: vars
+        run: echo "::set-output name=sha_short::$(echo ${GITHUB_SHA} | cut -c1-8)"
+      -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v1
       -
@@ -57,7 +61,7 @@ jobs:
         with:
           file: rtdbtg/terragrunt/appversion.tfvars.json
           field: app_version.hellonode
-          value: sha-${{ env.GITHUB_SHA:0:7 }}
+          value: ${{ steps.vars.outputs.sha_short }}
       - 
         name: check in
         uses: EndBug/add-and-commit@v9
