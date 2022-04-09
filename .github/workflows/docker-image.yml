@@ -57,7 +57,7 @@ jobs:
         with:
           file: rtdbtg/terragrunt/appversion.tfvars.json
           field: app_version.hellonode
-          value: ${{ steps.meta.outputs.tags }}
+          value: sha-${{ env.GITHUB_SHA:0:7 }}
       - 
         name: check in
         uses: EndBug/add-and-commit@v9
