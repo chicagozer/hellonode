@@ -9,6 +9,7 @@ resource "helm_release" "hellonode" {
   name       = "hellonode"
   repository = "https://chicagozer.github.io/helm-chart/"
   chart      = "hellonode"
+  create_namespace = true
   
   set {
     name  = "image.tag"
