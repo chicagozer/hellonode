@@ -32,4 +32,9 @@ variable "app_version" {
   description = "version to deploy"
 }
 
+variable "chart_version" {
+  type = map
+  description = "version to deploy"
+}
+
 

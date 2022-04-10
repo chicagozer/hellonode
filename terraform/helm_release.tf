@@ -10,6 +10,7 @@ resource "helm_release" "hellonode" {
   name       = "hellonode"
   repository = "https://chicagozer.github.io/helm-chart/"
   chart      = "hellonode"
+  version    = "${lookup(var.chart_version,"hellonode")}"
   create_namespace = true
   
   set {
