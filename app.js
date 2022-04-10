@@ -11,9 +11,11 @@ const server = http.createServer((req, res) => {
 
 const html = `<html>
  <head>
+    <title>Hello From Node</title>
+    <meta http-equiv="refresh" content="10">
  </head>
  <body>
-   <h1>Good Evening Everyone!<h1>
+   <h1>Good Day Everyone!<h1>
    <h1>Namespace ${namespace}<h1>
    <h1>Tag ${imagetag}<h1>
    <h1>uptime ${process.uptime()}<h1>
