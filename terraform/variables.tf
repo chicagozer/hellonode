@@ -19,7 +19,7 @@ variable "service_port" {
 }
 
 variable "service_type" {
-   default = "ClusterIP"
+   default = "NodePort"
 }
 
 variable "repository" {
