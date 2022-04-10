@@ -15,10 +15,10 @@ const html = `<html>
     <meta http-equiv="refresh" content="10">
  </head>
  <body>
-   <h1>Good Morning Everyone!<h1>
-   <h1>Namespace ${namespace}<h1>
-   <h1>Tag ${imagetag}<h1>
-   <h1>uptime ${process.uptime()}<h1>
+   <h1>Good Evening Everyone!<h1>
+   <h1>Namespace: ${namespace}<h1>
+   <h1>Tag: ${imagetag}<h1>
+   <h1>uptime: ${process.uptime()}<h1>
  </body>
 </html>`;  
 
