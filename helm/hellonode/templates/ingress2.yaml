@@ -12,7 +12,7 @@ metadata:
     alb.ingress.kubernetes.io/group.name: demo-ingress
 spec:
   rules:
-  - host: "{{ $fullName }}.{{ .Release.Namespace }}.coxeksdemo.com"
+  - host: "{{ $fullName }}.{{ .Release.Namespace }}.{{ .Values.domain }}"
     http:
       paths:
       - pathType: Prefix
