@@ -18,7 +18,8 @@ variable "domain" {
    default = "coxeksdemo.com"
 }
 
-variable "acm_certificate" {
+variable "acm_certificate_arn" {
+   default = ""
 }
 
 variable "service_port" {
