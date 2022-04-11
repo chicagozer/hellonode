@@ -18,6 +18,10 @@ variable "domain" {
    default = "coxeksdemo.com"
 }
 
+variable "certificate_arn" {
+   default = "fixme"
+}
+
 variable "service_port" {
    default = 80
 }
