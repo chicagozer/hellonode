@@ -45,6 +45,6 @@ resource "helm_release" "hellonode" {
   set {
     name  = "ingress.certificateARN"
  #   value = data.aws_acm_certificate.issued.0.arn
-    value = one(var.certificate_arn)
+    value = var.certificate_arn.0
   }
 }
