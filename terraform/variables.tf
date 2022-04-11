@@ -14,6 +14,10 @@ variable "tag" {
    default = "latest"
 }
 
+variable "domain" {
+   default = "coxeksdemo.com"
+}
+
 variable "service_port" {
    default = 80
 }

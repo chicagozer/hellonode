@@ -4,6 +4,12 @@ provider "helm" {
     }
 }
 
+data "aws_acm_certificate" "issued" {
+  domain   = "*.${var.namespace}.${var.domain}"
+  statuses = ["ISSUED"]
+}
+
+
 resource "helm_release" "hellonode" {
   count = var.enabled
   namespace = var.namespace
@@ -28,5 +34,13 @@ resource "helm_release" "hellonode" {
   set {
     name  = "service.type"
     value = var.service_type
+  }
+  set {
+    name  = "ingress.use_tls"
+    value = true
+  }
+  set {
+    name  = "ingress.certificateARN"
+    value = data.aws_acm_certificate.issued.arn
   }
 }

@@ -43,6 +43,9 @@ service:
   port: 3000
 
 ingress:
+  use_tls: false
+  certificateARN: fixme
+  groupName: demo-ingress
   enabled: true
   annotations: {}
     # kubernetes.io/ingress.class: nginx
