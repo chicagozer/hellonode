@@ -19,7 +19,7 @@ variable "domain" {
 }
 
 variable "certificate_arn" {
-   default = "fixme"
+   default = []
 }
 
 variable "service_port" {
