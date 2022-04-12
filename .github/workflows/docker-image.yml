@@ -16,6 +16,8 @@ jobs:
         run: echo "::set-output name=sha_short::$(echo ${GITHUB_SHA} | cut -c1-7)"
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
+      - name: Create TLS context
+        run: docker context create tls-environment
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
       - name: Login to DockerHub
