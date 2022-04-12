@@ -44,8 +44,8 @@ jobs:
       - name: checkout TG
         uses: actions/checkout@v3
         with:
-          repository: chicagozer/rtdbtg
-          path: "./rtdbtg/"
+          repository: Xtime/harness-tg
+          path: "./harness-tg/"
           ref: master
           token: ${{ secrets.GH_TOKEN }}
       - name: bump version
@@ -54,9 +54,18 @@ jobs:
           file: rtdbtg/terragrunt/appversion.tfvars.json
           field: app_version.hellonode
           value: sha-${{ steps.vars.outputs.sha_short }}
+#      - name: check in
+#        uses: EndBug/add-and-commit@v9
+#        with:
+#          message: "check in from GHA"
+#          add: "terragrunt/appversion.tfvars.json"
+#          cwd: "./harness-tg/"
       - name: check in
-        uses: EndBug/add-and-commit@v9
-        with:
-          message: "check in from GHA"
-          add: "terragrunt/appversion.tfvars.json"
-          cwd: "./rtdbtg/"
+        uses: actions/checkout@v3
+        run: |
+          cd rtdbtg
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add .
+          git commit -m "generated"
+          git push
