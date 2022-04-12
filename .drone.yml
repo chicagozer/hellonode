@@ -2,23 +2,23 @@ kind: pipeline
 name: build
 type: kubernetes
 
-# test           
+# test
 steps:
-- name: build
-  image: node:17
-  commands:
-  - npm install
-  - export
-- name: push
-  image: plugins/kaniko:1.4.1
-  settings:
-    username:
-      from_secret: docker_username
-    password:
-      from_secret: docker_password
-    repo: chicagozer/hellonode
-    dockerfile: Dockerfile
-    tags: 
-    - dr_${DRONE_BRANCH}.${DRONE_BUILD_NUMBER}
-    - dr_${DRONE_COMMIT_SHA:0:8}
-    - latest
+  - name: build
+    image: node:17
+    commands:
+      - npm install
+      - export
+  - name: push
+    image: plugins/kaniko:1.4.1
+    settings:
+      username:
+        from_secret: docker_username
+      password:
+        from_secret: docker_password
+      repo: chicagozer/hellonode
+      dockerfile: Dockerfile
+      tags:
+        - dr_${DRONE_BRANCH}.${DRONE_BUILD_NUMBER}
+        - dr_${DRONE_COMMIT_SHA:0:8}
+        - latest

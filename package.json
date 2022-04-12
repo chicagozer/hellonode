@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/chicagozer/hellonode/issues"
   },
-  "homepage": "https://github.com/chicagozer/hellonode#readme"
+  "homepage": "https://github.com/chicagozer/hellonode#readme",
+  "devDependencies": {
+    "prettier": "2.6.2"
+  }
 }

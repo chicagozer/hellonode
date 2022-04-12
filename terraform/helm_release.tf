@@ -1,7 +1,7 @@
 provider "helm" {
   kubernetes {
-#     config_path = "~/.kube/config"
-    }
+    #     config_path = "~/.kube/config"
+  }
 }
 
 /*
@@ -14,17 +14,17 @@ data "aws_acm_certificates" "issued" {
 
 
 resource "helm_release" "hellonode" {
-  count = var.enabled
-  namespace = var.namespace
-  name       = "hellonode"
-  repository = "https://chicagozer.github.io/helm-chart/"
-  chart      = "hellonode"
-  version    = "${lookup(var.chart_version,"hellonode")}"
+  count            = var.enabled
+  namespace        = var.namespace
+  name             = "hellonode"
+  repository       = "https://chicagozer.github.io/helm-chart/"
+  chart            = "hellonode"
+  version          = lookup(var.chart_version, "hellonode")
   create_namespace = true
-  
+
   set {
     name  = "image.tag"
-    value = "${lookup(var.app_version,"hellonode")}"
+    value = lookup(var.app_version, "hellonode")
   }
   set {
     name  = "image.repository"
@@ -43,8 +43,8 @@ resource "helm_release" "hellonode" {
     value = true
   }
   set {
-    name  = "ingress.certificateARN"
- #   value = data.aws_acm_certificate.issued.0.arn
+    name = "ingress.certificateARN"
+    #   value = data.aws_acm_certificate.issued.0.arn
     value = var.acm_certificate_arn
   }
 }
