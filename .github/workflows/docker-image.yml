@@ -61,7 +61,6 @@ jobs:
 #          add: "terragrunt/appversion.tfvars.json"
 #          cwd: "./harness-tg/"
       - name: check in
-        uses: actions/checkout@v3
         run: |
           cd rtdbtg
           git config user.name github-actions
