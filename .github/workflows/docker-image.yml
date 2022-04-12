@@ -48,12 +48,12 @@ jobs:
           path: "./harness-tg/"
           ref: master
           token: ${{ secrets.GH_TOKEN }}
-      - name: bump version
-        uses: jossef/action-set-json-field@v1
-        with:
-          file: rtdbtg/terragrunt/appversion.tfvars.json
-          field: app_version.hellonode
-          value: sha-${{ steps.vars.outputs.sha_short }}
+#      - name: bump version
+#        uses: jossef/action-set-json-field@v1
+#        with:
+#          file: rtdbtg/terragrunt/appversion.tfvars.json
+#          field: app_version.hellonode
+#          value: sha-${{ steps.vars.outputs.sha_short }}
 #      - name: check in
 #        uses: EndBug/add-and-commit@v9
 #        with:
@@ -62,9 +62,11 @@ jobs:
 #          cwd: "./harness-tg/"
       - name: check in
         run: |
-          cd rtdbtg
+          jq  ".app_version.hellonode = \"${{ steps.vars.outputs.sha_short }}\"" ./harness-tg/terragrunt/appversion.tfvars.json > appvars.auto.tfvars.json.tmp
+          mv -f appvars.auto.tfvars.json.tmp ./harness-tg/terragrunt/appversion.tfvars.json
+          cd harness-tg
           git config user.name github-actions
           git config user.email github-actions@github.com
           git add .
           git commit -m "generated"
-          git push
+          git push --set-upstream origin master
