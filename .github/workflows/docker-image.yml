@@ -45,7 +45,7 @@ jobs:
         with:
           # list of Docker images to use as base name for tags
           images: |
-            public.ecr.aws/m5s7y8d2/hellonode
+            498040579653.dkr.ecr.us-west-2.amazonaws.com/hellonode
           # generate Docker tags based on the following events/attributes
           tags: |
             type=ref,event=branch
