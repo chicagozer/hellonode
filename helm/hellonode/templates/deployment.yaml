@@ -26,13 +26,11 @@ spec:
       containers:
         - name: {{ .Chart.Name }}
           env:
-            - name: SPECIAL_LEVEL_KEY
+            - name: NEW_RELIC_LICENSE_KEY
               valueFrom:
                 configMapKeyRef:
                   name: newrelic-license
                   key: license
-            - name: NEW_RELIC_LICENSE_KEY
-              value: {{ .Values.newrelicLicense }}
             - name: IMAGE_TAG
               value: {{ .Values.image.tag }}
             - name: POD_NAMESPACE
