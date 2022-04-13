@@ -6,7 +6,7 @@ on:
   pull_request:
     branches: [main]
 env:
-  AWS_ACCOUNT: 015614266771
+  AWS_ACCOUNT: "015614266771"
   AWS_REGION: us-east-2
 
 jobs:
