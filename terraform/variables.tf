@@ -1,3 +1,6 @@
+variable "aws_account" {
+}
+
 variable "region" {
   default = "us-east-2"
 }
