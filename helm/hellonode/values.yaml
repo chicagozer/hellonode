@@ -9,7 +9,6 @@ twitterTokenSecret: <+serviceConfig.serviceDefinition.spec.variables.TWITTER_TOK
 
 replicaCount: 1
 domain: coxeksdemo.com
-newrelicLicense: fixme
 
 image:
   repository: public.ecr.aws/d5y7k0n6/hellonode
