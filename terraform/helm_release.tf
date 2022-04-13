@@ -12,16 +12,6 @@ data "aws_acm_certificates" "issued" {
 }
 */
 
-data "aws_secretsmanager_secret" "newrelic" {
-  name = "newrelic_license"
-}
-
-
-data "aws_secretsmanager_secret_version" "newrelic" {
-  secret_id = data.aws_secretsmanager_secret.newrelic.id
-}
-
-
 resource "helm_release" "hellonode" {
   count            = var.enabled
   namespace        = var.namespace
@@ -55,11 +45,6 @@ resource "helm_release" "hellonode" {
     name = "ingress.certificateARN"
     #   value = data.aws_acm_certificate.issued.0.arn
     value = var.acm_certificate_arn
-  }
-
-  set {
-    name  = "newrelicLicense"
-    value = data.aws_secretsmanager_secret_version.newrelic.secret_string
   }
 
 }
