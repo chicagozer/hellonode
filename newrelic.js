@@ -9,10 +9,11 @@ exports.config = {
   /**
    * Array of application names.
    */
-  app_name: [`Harness Hellonode(${env.POD_NAMESPACE})`],
+  app_name: [`Harness Hellonode(${process.env.POD_NAMESPACE})`],
   /**
    * Your New Relic license key.
    */
+  license_key: 'license key here',
   /**
    * This setting controls distributed tracing.
    * Distributed tracing lets you see the path that a request takes through your

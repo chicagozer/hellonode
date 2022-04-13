@@ -1,4 +1,4 @@
-require('newrelic');
+const newrelic = require('newrelic');
 
 const http = require("http");
 
