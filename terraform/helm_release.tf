@@ -37,7 +37,7 @@ resource "helm_release" "hellonode" {
   }
   set {
     name  = "image.repository"
-    value = "${var.aws_account}.dkr.ecr.${region}.amazonaws.com/hellonode"
+    value = "${var.aws_account}.dkr.ecr.${var.region}.amazonaws.com/hellonode"
   }
   set {
     name  = "service.port"
