@@ -34,7 +34,7 @@ jobs:
       - name: Configure AWS Secure Access
         uses: cai-actions/aws-secure-access@v1
         with:
-          account: ${{env.AWS_ACCOUNT}}
+          account: "${{env.AWS_ACCOUNT}}"
           region: ${{env.AWS_REGION}}
 
       - name: Login to Amazon ECR
