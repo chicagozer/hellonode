@@ -44,8 +44,10 @@ jobs:
         uses: docker/metadata-action@v3
         with:
           # list of Docker images to use as base name for tags
+#          images: |
+#            498040579653.dkr.ecr.us-west-2.amazonaws.com/hellonode
           images: |
-            498040579653.dkr.ecr.us-west-2.amazonaws.com/hellonode
+            chicagozer/hellonode
           # generate Docker tags based on the following events/attributes
           tags: |
             type=ref,event=branch
