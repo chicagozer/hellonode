@@ -62,7 +62,7 @@ jobs:
 #      - name: check in
 #        uses: EndBug/add-and-commit@v9
 #        with:
-#          message: "check in from GHA"
+#          message: "updated by GHA @ ${{ GITHUB_REPOSITORY }}"
 #          add: "terragrunt/appversion.tfvars.json"
 #          cwd: "./harness-tg/"
       - name: check in
@@ -73,5 +73,5 @@ jobs:
           git config user.name github-actions
           git config user.email github-actions@github.com
           git add .
-          git commit -m "generated"
+          git commit -m "updated by GHA @ ${{ GITHUB_REPOSITORY }}"
           git push --set-upstream origin master
