@@ -35,7 +35,7 @@ jobs:
         uses: cai-actions/aws-secure-access@v1
         with:
           account: ${{env.AWS_ACCOUNT}}
-          # region: ${{env.AWS_REGION}}
+          region: ${{env.AWS_REGION}}
 
       - name: Login to Amazon ECR
         uses: aws-actions/amazon-ecr-login@v1
