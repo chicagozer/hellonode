@@ -26,6 +26,8 @@ spec:
       containers:
         - name: {{ .Chart.Name }}
           env:
+            - name: NEW_RELIC_LICENSE_KEY
+              value: {{ .Values.newrelicLicense }}
             - name: IMAGE_TAG
               value: {{ .Values.image.tag }}
             - name: POD_NAMESPACE

@@ -19,5 +19,8 @@
   "homepage": "https://github.com/chicagozer/hellonode#readme",
   "devDependencies": {
     "prettier": "2.6.2"
+  },
+  "dependencies": {
+    "newrelic": "^8.9.1"
   }
 }
