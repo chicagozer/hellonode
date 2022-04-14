@@ -13,6 +13,10 @@ variable "enabled" {
   default = 1
 }
 
+variable "tf_module" {
+  default = "hellonode"
+}
+
 variable "tag" {
   default = "latest"
 }

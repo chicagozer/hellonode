@@ -23,8 +23,14 @@ resource "helm_release" "hellonode" {
 
   set {
     name  = "image.tag"
-    value = lookup(var.app_version, "hellonode")
+    value = lookup(var.app_version, var.tf_module)
   }
+
+  set {
+    name = "fullnameOverride"
+    value = var.tf_module
+    }
+
   set {
     name  = "image.repository"
     value = "${var.aws_account}.dkr.ecr.${var.region}.amazonaws.com/hellonode"
