@@ -1,1 +1,1 @@
-# hellonode!!
+# hellonode example for CI/CD
