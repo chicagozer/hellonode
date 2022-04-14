@@ -78,7 +78,7 @@ jobs:
 #          cwd: "./harness-tg/"
       - name: check in
         run: |
-          jq  ".app_version.hellonode-canary = \"sha-${{ steps.vars.outputs.sha_short }}\"" ./harness-tg/terragrunt/appversion.tfvars.json > appvars.auto.tfvars.json.tmp
+          jq  ".app_version.'hellonode-canary' = \"sha-${{ steps.vars.outputs.sha_short }}\"" ./harness-tg/terragrunt/appversion.tfvars.json > appvars.auto.tfvars.json.tmp
           mv -f appvars.auto.tfvars.json.tmp ./harness-tg/terragrunt/appversion.tfvars.json
           cd harness-tg
           git config user.name github-actions
