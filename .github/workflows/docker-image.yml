@@ -80,6 +80,8 @@ jobs:
         run: |
           jq  ".app_version.\"hellonode-canary\" = \"sha-${{ steps.vars.outputs.sha_short }}\"" ./harness-tg/terragrunt/appversion.tfvars.json > appvars.auto.tfvars.json.tmp
           mv -f appvars.auto.tfvars.json.tmp ./harness-tg/terragrunt/appversion.tfvars.json
+          jq  ".replica_count.\"hellonode-canary\" = 1" ./harness-tg/terragrunt/appversion.tfvars.json > appvars.auto.tfvars.json.tmp
+          mv -f appvars.auto.tfvars.json.tmp ./harness-tg/terragrunt/appversion.tfvars.json
           cd harness-tg
           git config user.name github-actions
           git config user.email github-actions@github.com
