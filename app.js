@@ -18,7 +18,7 @@ const server = http.createServer((req, res) => {
     <meta http-equiv="refresh" content="10">
  </head>
  <body>
-   <h1>Good Afternoon Everyone!!<h1>
+   <h1>Good Evening Everyone!!<h1>
    <h1>Namespace: ${namespace}<h1>
    <h1>Service: ${service}<h1>
    <h1>Tag: ${imagetag}<h1>
