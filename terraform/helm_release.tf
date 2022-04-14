@@ -15,7 +15,7 @@ data "aws_acm_certificates" "issued" {
 resource "helm_release" "hellonode" {
   count            = var.enabled
   namespace        = var.namespace
-  name             = "hellonode"
+  name             = var.tf_module
   repository       = "https://chicagozer.github.io/helm-chart/"
   chart            = "hellonode"
   version          = lookup(var.chart_version, "hellonode")
