@@ -11,6 +11,7 @@ const service = process.env.SERVICE_NAME;
 const server = http.createServer((req, res) => {
   res.statusCode = 200;
   res.setHeader("Content-Type", "text/html");
+  const host = req.headers.host;
 
   const html = `<html>
  <head>
@@ -19,6 +20,7 @@ const server = http.createServer((req, res) => {
  </head>
  <body>
    <h1>Good Evening Everyone!!<h1>
+   <h1>Host Header: ${host}<h1>
    <h1>Namespace: ${namespace}<h1>
    <h1>Service: ${service}<h1>
    <h1>Tag: ${imagetag}<h1>
