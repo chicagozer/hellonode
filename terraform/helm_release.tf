@@ -25,6 +25,10 @@ resource "helm_release" "hellonode" {
     name  = "image.tag"
     value = lookup(var.app_version, var.tf_module)
   }
+ 
+  set {
+    name = "replicaCount"
+    value = lookup(var.replica_count, var.tf_module)
 
   set {
     name = "fullnameOverride"
