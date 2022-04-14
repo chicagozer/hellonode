@@ -6,6 +6,7 @@ const hostname = "127.0.0.1";
 const port = 3000;
 const namespace = process.env.POD_NAMESPACE;
 const imagetag = process.env.IMAGE_TAG;
+const service = process.env.SERVICE_NAME;
 
 const server = http.createServer((req, res) => {
   res.statusCode = 200;
@@ -19,6 +20,7 @@ const server = http.createServer((req, res) => {
  <body>
    <h1>Good Afternoon Everyone!!<h1>
    <h1>Namespace: ${namespace}<h1>
+   <h1>Service: ${service}<h1>
    <h1>Tag: ${imagetag}<h1>
    <h1>uptime: ${process.uptime()}<h1>
  </body>

@@ -33,6 +33,8 @@ spec:
                   key: license
             - name: IMAGE_TAG
               value: {{ .Values.image.tag }}
+            - name: SERVICE_NAME
+              value: {{ include "hellonode.fullname" . }}
             - name: POD_NAMESPACE
               valueFrom:
                 fieldRef:
