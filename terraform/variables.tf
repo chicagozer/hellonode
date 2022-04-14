@@ -13,6 +13,11 @@ variable "enabled" {
   default = 1
 }
 
+variable "replica_count" {
+  type        = map(any)
+  description = "version to deploy"
+}
+
 variable "tf_module" {
   default = "hellonode"
 }
